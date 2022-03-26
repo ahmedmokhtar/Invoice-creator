@@ -57,7 +57,7 @@ function renderServices() {
   let serviceListCost = ""
 
   for (let i = 0; i < services.length; i++) {
-    serviceListName += `<li>${services[i].name}</li>`
+    serviceListName += `<li>${services[i].name} <a class="remove" onClick="deleteService(${i})" href="#">Remove</a></li>`
     serviceListCost += `<li>$${services[i].cost}</li>`
 
   }
@@ -82,6 +82,23 @@ function renderTotal() {
   }
 
   noteEl.style.visibility = noteVisible
+}
+
+function deleteService(index) {
+  if (services[index].name === 'Wash Car') {
+    washBtn.disabled = false
+  }
+
+  if (services[index].name === "Mow Lawn") {
+    mowBtn.disabled = false
+  }
+
+  if (services[index].name === "Pull Weeds") {
+    pullBtn.disabled = false
+  }
+
+  services.splice(index, 1)
+  renderServices()
 }
 
 renderServices()
