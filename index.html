@@ -6,32 +6,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/styles.css">
+  <script src="https://kit.fontawesome.com/a8e3f51533.js" crossorigin="anonymous"></script>
   <title>Invoice Creator</title>
 </head>
 <body>
-  <continer>
+  <div class="container">
     <header>
       <h1>Invoice Creator</h1>
       <h6>Thanks for choosing GoodCorp, LCC!</h6>
     </header>
-    <hr>
     <main>
       <button id="wash-btn">Wash Car: $10</button>
       <button id="mow-btn">Mow Lawn: $20</button>
       <button id="pull-btn">Pull Weeds: $30</button>
 
-      <div id="service-name-el">
+      <div class="list-cols">
+        <p class="col1">Task</p>
+        <p class="col2">Total</p>
       </div>
-      <div id="service-cost-el">
+      <div class="list-cols">
+        <div id="service-name-el" class="list-col">
+          
+        </div>
+        <div id="service-cost-el" class="list-col">
+          
+        </div>
       </div>
-      <div id="total-el">
-        total
+      <hr>
+      <div class="list-cols">
+        <section class="notes-section col1">
+          <p>notes</p>
+          <p id="note-el">We accept cash, credit card, or PayPal</p>
+          
+        </section>
+        <section class="total-section col2">
+          <p>Total amount</p>
+          <div id="total-el">
+          
+          </div>
+        </section>
       </div>
       <div>
-        <button id="send-btn">Send Invoice</button>
+        <button id="send-btn"><i class="fa-solid fa-envelope"></i> Send Invoice</button>
       </div>
     </main>
-  </continer>
+  </div>
   <script src="index.js"></script>
 </body>
 </html>

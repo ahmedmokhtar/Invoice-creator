@@ -7,6 +7,7 @@ const sendBtn = document.getElementById("send-btn")
 const servicesNameEl = document.getElementById("service-name-el")
 const servicesCostEl = document.getElementById("service-cost-el")
 const totalEl = document.getElementById("total-el")
+const noteEl = document.getElementById("note-el")
 
 washBtn.addEventListener("click", function() {
   addService({name: "Wash Car", cost: 10})
@@ -56,8 +57,8 @@ function renderServices() {
   let serviceListCost = ""
 
   for (let i = 0; i < services.length; i++) {
-    serviceListName += `<li> ${services[i].name} </li>`
-    serviceListCost += `<li> ${services[i].cost} </li>`
+    serviceListName += `<li>${services[i].name}</li>`
+    serviceListCost += `<li>$${services[i].cost}</li>`
 
   }
   servicesNameEl.innerHTML = `<ul>${serviceListName}</ul>`
@@ -68,12 +69,19 @@ function renderServices() {
 
 function renderTotal() {
   let total = 0
+  let noteVisible = 'hidden'
 
   for (let i = 0; i < services.length; i++) {
     total += services[i].cost
   }
 
-  totalEl.innerHTML = `Total: $${total}`
+  totalEl.innerHTML = `$${total}`
+
+  if (total > 0) {
+    noteVisible = 'visible'
+  }
+
+  noteEl.style.visibility = noteVisible
 }
 
 renderServices()
